@@ -17,6 +17,8 @@ if __name__ == '__main__':
             # view = avInfo['data']['stat']['view']
             # print('max = ' + str(maxView) + ', ' + avInfo['data']['title'] + ' ' + str(view))
             view = avInfo['data']['view']
+            if view == '--':
+                continue
             print('max = ' + str(maxView) + ', ' + ' ' + str(view))
             if view > maxView:
                 maxView = view
