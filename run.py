@@ -2,9 +2,9 @@ import requests
 import json
 
 
-# http://api.bilibili.com/archive_stat/stat?aid=8614334
 def getAvInfo(av):
-    getAvInfoUrl = 'https://api.bilibili.com/x/web-interface/view?aid='
+    # getAvInfoUrl = 'https://api.bilibili.com/x/web-interface/view?aid='
+    getAvInfoUrl = 'http://api.bilibili.com/archive_stat/stat?aid='
     return json.loads(requests.get(getAvInfoUrl + str(av)).text)
 
 
@@ -14,7 +14,9 @@ if __name__ == '__main__':
         print(av)
         avInfo = getAvInfo(av)
         if avInfo['code'] == 0:
-            view = avInfo['data']['stat']['view']
-            print('max = ' + str(maxView) + ', ' + avInfo['data']['title'] + ' ' + str(view))
+            # view = avInfo['data']['stat']['view']
+            # print('max = ' + str(maxView) + ', ' + avInfo['data']['title'] + ' ' + str(view))
+            view = avInfo['data']['view']
+            print('max = ' + str(maxView) + ', ' + ' ' + str(view))
             if view > maxView:
                 maxView = view
